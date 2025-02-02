@@ -1,0 +1,50 @@
+/* Import Tailwind CSS base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure full viewport width and height */
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default scrollbar */
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Floating Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 5px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Show indicator when scrolling */
+body.scrolling .scroll-indicator {
+  opacity: 1;
+}
