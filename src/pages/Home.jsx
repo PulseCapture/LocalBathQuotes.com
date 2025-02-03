@@ -213,7 +213,7 @@ function Home() {
     <div className="w-full m-0 p-0 relative">
       {/* Hero Section */}
       <section
-        className="w-full h-[76vh] md:h-[vh] bg-fixed bg-cover bg-bottom flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+        className="w-full h-[70vh] md:h-[vh] bg-fixed bg-cover bg-bottom flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
         style={{
           backgroundImage:
             "url('https://bathflipper.com/wp-content/uploads/2025/02/carlos-masias-yg8zkwBS30Q-unsplash-scaled.jpg')",
@@ -231,14 +231,15 @@ function Home() {
 
           {/* Heading and Service Bar */}
           <div className="flex flex-col">
-            <h2 className="text-5xl md:text-6xl font-light mb-6 text-white">
-              <span className="text-[#89B8F6]">Transform</span> your Bathroom with Local Expert Remodel Contractors
+            <h2 className="text-5xl md:text-6xl font-medium mb-6 text-white">
+              <span className="text-[#89B8F6]">Transform</span> your Bathroom with Local Expert Remodel Contractors<span className="text-[#89B8F6]">.</span>
             </h2>
             <h3 className="text-2xl md:text-3xl text-white mb-8">
-              Work with Local Professionals to receive a Free Estimate for your dream bathroom. Get started today!
+              Work with Local Professionals to receive a Free Estimate for your dream bathroom. Get started today<span className="text-[#89B8F6]">!</span>
             </h3>
             {/* Service Bar */}
             <ServiceBar />
+
           </div>
         </div>
       </section>

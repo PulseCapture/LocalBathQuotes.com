@@ -46,7 +46,7 @@ const FormModal = ({ isOpen, closePopup }) => {
         /* Floating form container */
         .floating-form {
           width: 95%;
-          max-width: 900px;
+          max-width: 1000px;
         }
         /* Slide container with a slight transparent baby blue tint */
         .slide-container {
@@ -55,14 +55,14 @@ const FormModal = ({ isOpen, closePopup }) => {
           border: 2px solid rgba(137, 207, 240, 0.75);
           border-radius: 4px;
           padding: 20px;
-          margin: 20px 0;
+          margin: 10px;
         }
         /* Exit button styled like the other buttons, positioned at the top right of the container */
         .slide-container .exit-btn {
           position: absolute;
           top: 10px;
           right: 10px;
-          font-size: 16px;
+          font-size: 18px;
           background: rgba(137,207,240,0.75);
           border: 2px solid rgba(137,207,240,0.75);
           border-radius: 2px;
@@ -94,8 +94,8 @@ const FormModal = ({ isOpen, closePopup }) => {
           display: block;
           margin-bottom: 10px;
           color: #fff;
-          font-size: 18px;
-          font-weight: 300 !important;
+          font-size: 20px;
+          font-weight: light !important;
         }
         label.required::after {
           content: " *";

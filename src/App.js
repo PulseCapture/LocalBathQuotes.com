@@ -31,7 +31,7 @@ function App() {
           isScrolling ? "bg-blue-700 shadow-lg" : "bg-blue-600"
         }`}
         style={{
-          background: `linear-gradient(to bottom, rgba(50, 90, 150, ${
+          background: `linear-gradient(to bottom, rgba(50, 90, 100, ${
             scroll ? 0.7 - scroll * 0.002 : 0.7
           }), rgba(50, 90, 160, ${scroll ? 0.15 - scroll * 0.001 : 0.15}))`,
           backdropFilter: `blur(${10 - scroll * 0.05}px)`,
