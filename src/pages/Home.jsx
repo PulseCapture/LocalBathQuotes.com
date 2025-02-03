@@ -1,15 +1,25 @@
-import React from "react";
+
+
 import About from "./About"; // Make sure this component exists and is correctly implemented
 import Footer from "./Footer";   // Import the footer component you provided
 
+
+
+
 // ServiceBar Component
+
+import React, { useState } from "react";
+import FormModal from "../components/FormModal"; // Import the new modal component
+
 const ServiceBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const openPopup = () => {
-    if (window.Formester) {
-      window.Formester.openPopup("a875d46e-4aa1-481b-bd45-77d4c1e3d5b1");
-    } else {
-      console.error("Formester is not loaded.");
-    }
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -28,9 +38,15 @@ const ServiceBar = () => {
           Next
         </button>
       </div>
+
+      {/* Link to the FormModal */}
+      <FormModal isOpen={isOpen} closePopup={closePopup} />
     </div>
   );
 };
+
+
+
 
 // ServicesSection Component (with Elephant Background)
 const ServicesSection = () => {
@@ -77,8 +93,7 @@ const ServicesSection = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-12 px-4 relative">
-      {/* Background Layer with Elephant Icons */}
-      <div className="absolute inset-0 pointer-events-none elephant-bg"></div>
+           <div className="absolute inset-0 pointer-events-none elephant-bg"></div>
 
       {/* Content Layer */}
       <div className="relative">
@@ -198,14 +213,14 @@ function Home() {
     <div className="w-full m-0 p-0 relative">
       {/* Hero Section */}
       <section
-        className="w-full h-[70vh] md:h-[vh] bg-fixed bg-cover bg-bottom flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+        className="w-full h-[76vh] md:h-[vh] bg-fixed bg-cover bg-bottom flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
         style={{
           backgroundImage:
             "url('https://bathflipper.com/wp-content/uploads/2025/02/carlos-masias-yg8zkwBS30Q-unsplash-scaled.jpg')",
         }}
       >
         {/* Overlay for smooth gradient fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-85"></div>
 
         {/* Heading and Divider Container */}
         <div className="relative w-full max-w-6xl px-4 text-left z-10 flex items-center justify-center">
@@ -245,6 +260,7 @@ function Home() {
 
   );
 }
+
 
 
 export default Home;

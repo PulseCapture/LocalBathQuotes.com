@@ -2,7 +2,7 @@ import React from "react";
 
 const RemodelRates = () => {
   return (
-    <div className="bg-gray-0 min-h-screen flex justify-center items-center p-6">
+     <div className="min-h-screen flex justify-center items-start pt-16 p-6">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">
           Learn More About Bathroom Remodel Costs

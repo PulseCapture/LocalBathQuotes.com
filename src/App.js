@@ -9,17 +9,16 @@ import HowItWorks from "./pages/HowItWorks";
 import RemodelProcess from "./pages/RemodelProcess";
 import Footer from "./pages/Footer"; // Adjust path if needed
 
-
-
-
-
 function App() {
   const [scroll, setScroll] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY);
+      setIsScrolling(window.scrollY > 10);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -27,22 +26,18 @@ function App() {
   return (
     <div>
       {/* Navigation Bar */}
-   
-
-<nav
-  className="fixed top-0 left-0 w-full z-20 transition-all flex items-center justify-between px-6 py-3"
-  style={{
-    background: `linear-gradient(to bottom, rgba(50, 90, 160, ${
-      0.7 - scroll * 0.002
-    }), rgba(50, 90, 160, ${0.15 - scroll * 0.001}))`, // Darker & More Transparent Blue
-    backdropFilter: `blur(${10 - scroll * 0.05}px)`,
-    WebkitBackdropFilter: `blur(${10 - scroll * 0.05}px)`,
-    maskImage: `linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)`, 
-    WebkitMaskImage: `linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)`,
-  }}
->
-
-
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-4 py-2 ${
+          isScrolling ? "bg-blue-700 shadow-lg" : "bg-blue-600"
+        }`}
+        style={{
+          background: `linear-gradient(to bottom, rgba(50, 90, 150, ${
+            scroll ? 0.7 - scroll * 0.002 : 0.7
+          }), rgba(50, 90, 160, ${scroll ? 0.15 - scroll * 0.001 : 0.15}))`,
+          backdropFilter: `blur(${10 - scroll * 0.05}px)`,
+          WebkitBackdropFilter: `blur(${10 - scroll * 0.05}px)`,
+        }}
+      >
         {/* Left - Logo */}
         <img src="/landing-page-project.png" alt="Logo" className="h-12 w-auto" />
 
@@ -67,7 +62,7 @@ function App() {
           <button className="bg-blue-500 bg-opacity-70 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
             Get a Quote
           </button>
-          <button className="bg-green-500 bg-opacity-70 text-white px-7 py- rounded-lg hover:bg-opacity-90 transition">
+          <button className="bg-green-500 bg-opacity-70 text-white px-7 py-2 rounded-lg hover:bg-opacity-90 transition">
             Call Now
           </button>
         </div>
@@ -77,15 +72,13 @@ function App() {
       <div className="bg-gray-300 w-full px-[5px] pt-24">
         <Routes>
           <Route path="/" element={<Home />} />
-           <Route path="/remodel-rates" element={<RemodelRates/>} />
-	  <Route path="/" element={<h1>Welcome to Home Page</h1>} />
+          <Route path="/remodel-rates" element={<RemodelRates />} />
           <Route path="/estimator" element={<RemodelEstimator />} />
-	  <Route path="/remodel-rates" element={<RemodelRates />} />
-	  <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remodel-process" element={<RemodelProcess />} />
-
         </Routes>
       </div>
+
       {/* Footer is Always Visible */}
       <Footer />
     </div>

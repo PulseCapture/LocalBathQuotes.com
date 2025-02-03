@@ -2,8 +2,8 @@ import React from "react";
 
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen flex justify-center items-start pt-16 p-6"> {/* Adjusted background color and position */}
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full"> {/* Slightly off-white background */}
+    <div className="min-h-screen flex justify-center items-start pt-16 p-6"> 
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full"> 
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">How It Works</h1>
         <div className="border-t-2 border-blue-400 my-4"></div>
 
