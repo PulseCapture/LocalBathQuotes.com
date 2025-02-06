@@ -1,0 +1,66 @@
+// GalleryPage.js
+import React, { useState } from "react";
+
+const InspirationGallery = () => {
+  // Create an array of 36 dummy image URLs.
+  // Replace these URLs with your actual image URLs.
+  const images = Array.from({ length: 36 }, (_, i) =>
+    `https://via.placeholder.com/100?text=Img+${i + 1}`
+  );
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  return (
+    <div className="inspiration-gallery my-8 p-4 bg-white rounded shadow">
+      <h2 className="text-xl md:text-2xl font-medium text-center mb-4">
+        Would you like to share some inspiration with a pro? View and select an image to include in your submission.
+      </h2>
+      {/* Grid of images: 6 columns */}
+      <div className="grid grid-cols-6 gap-4">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className="cursor-pointer w-24 h-24 border rounded overflow-hidden"
+            onClick={() => setSelectedImage(img)}
+          >
+            <img
+              src={img}
+              alt={`Inspiration ${idx + 1}`}
+              className="object-cover w-full h-full"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Modal overlay to display the selected image */}
+      {selectedImage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+          <div className="relative">
+            <img
+              src={selectedImage}
+              alt="Expanded Inspiration"
+              className="max-w-full max-h-screen rounded"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 bg-white text-black rounded p-2 shadow"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const GalleryPage = () => {
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl font-bold mb-8">Inspiration Gallery</h1>
+      <InspirationGallery />
+    </div>
+  );
+};
+
+export default GalleryPage;

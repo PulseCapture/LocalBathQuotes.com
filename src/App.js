@@ -9,6 +9,7 @@ import HowItWorks from "./pages/HowItWorks";
 import RemodelProcess from "./pages/RemodelProcess";
 import Footer from "./pages/Footer"; // Adjust path if needed
 
+
 function App() {
   const [scroll, setScroll] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -76,6 +77,7 @@ function App() {
           <Route path="/estimator" element={<RemodelEstimator />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remodel-process" element={<RemodelProcess />} />
+	
         </Routes>
       </div>
 
