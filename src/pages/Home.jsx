@@ -6,7 +6,7 @@ import StyleSelection from "../components/StyleSelection";
 import About from "../components/About";
 import InsightsSection from "../components/InsightsSection";
 import ScrollIndicator from "../components/ScrollIndicator";
-import Footer from "../components/Footer"; // if you have one
+
 
 function Home() {
   return (
