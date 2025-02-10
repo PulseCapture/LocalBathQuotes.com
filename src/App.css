@@ -11,35 +11,67 @@
   padding: 12px 16px;
   transition: all 0.3s ease-in-out;
   backdrop-filter: blur(5px);
+  background: rgba(50, 90, 100, 0.8);
 }
 
+/* Shrink Header on Scroll */
 .scrolled {
-  background: rgba(50, 90, 100, 0.8);
+  padding: 8px 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Logo */
+/* Logo - Reduce Size for Mobile */
 .logo {
-  height: 48px;
+  height: 40px;
   width: auto;
 }
 
-/* Navigation */
+/* Reduce Logo Size on Mobile */
+@media (max-width: 768px) {
+  .logo {
+    height: 30px;
+  }
+  .navbar {
+    padding: 6px 12px;
+  }
+}
+
+/* Navigation Links */
 .nav-links {
   display: flex;
   gap: 20px;
 }
 
-.nav-item {
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
+/* Hide Menu on Mobile and Show Menu Button */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
 
-.nav-item:hover {
-  color: #d1d1d1;
+/* Show Menu when Open */
+.menu-open .nav-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(50, 90, 100, 0.9);
+  padding: 10px;
+}
+
+.menu-toggle {
+  display: none; /* Hidden by default, shown on mobile */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* Buttons */
@@ -88,5 +120,3 @@
   font-size: 18px;
   color: #555;
 }
-
-
