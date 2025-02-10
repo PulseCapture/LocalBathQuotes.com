@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
-import RemodelEstimator from "./pages/RemodelEstimator";
 import RemodelRates from "./pages/RemodelRates";
 import HowItWorks from "./pages/HowItWorks";
 import RemodelProcess from "./pages/RemodelProcess";
-import Footer from "./pages/Footer"; // Adjust path if needed
+import Footer from "./components/Footer"; // Adjust path if needed
 
 
 function App() {
@@ -40,7 +38,11 @@ function App() {
         }}
       >
         {/* Left - Logo */}
-        <img src="/landing-page-project.png" alt="Logo" className="h-12 w-auto" />
+        {/* Left - Logo */}
+<img src="/Bath.png" alt="Logo" className="h-12 w-auto" />
+
+
+
 
         {/* Center - Navigation */}
         <div className="flex space-x-8">
@@ -74,8 +76,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/remodel-rates" element={<RemodelRates />} />
-          <Route path="/estimator" element={<RemodelEstimator />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
+                  <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remodel-process" element={<RemodelProcess />} />
 	
         </Routes>
