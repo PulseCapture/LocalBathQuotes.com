@@ -1,17 +1,20 @@
-// src/components/HeroSection.jsx
 import React from "react";
-import ServiceBar from "./ServiceBar"; // Ensure this is in the same folder
+import ServiceBar from "./ServiceBar";
 
 const HeroSection = () => {
   return (
     <section
-      className="w-full h-[70vh] md:h-[75vh] bg-fixed bg-cover bg-bottom flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+      className="w-full min-h-[70vh] md:min-h-[75vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
       style={{
-        backgroundImage: "url('/carlos-masias-yg8zkwBS30Q-unsplash.jpg')",
+        backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`, // ✅ FIXED
+        backgroundSize: "cover", // ✅ Ensures full coverage
+        backgroundPosition: "center", // ✅ Keeps image centered
+        backgroundRepeat: "no-repeat", // ✅ Prevents tiling
       }}
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-85"></div>
+
       {/* Content container */}
       <div className="relative w-full max-w-6xl px-4 text-left z-10 flex items-center justify-center">
         {/* Divider Bar (visible on medium screens and up) */}
