@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ServiceBar from "./ServiceBar";
 
 const HeroSection = () => {
+  const [bgSize, setBgSize] = useState(120); // Initial width in vw
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let scrollValue = window.scrollY * 0.1; // Adjust zoom-out speed
+      let newSize = Math.max(100, 120 - scrollValue); // Prevents it from shrinking too much
+      setBgSize(newSize);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       className="w-full min-h-[70vh] md:min-h-[75vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
-        backgroundSize: "120vw auto", // 🟢 Wider image without cropping
+        backgroundSize: `${bgSize}vw auto`, // 🔹 Adjusting width dynamically
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed", // ✅ Keeps background fixed
+        transition: "background-size 0.1s ease-out", // ✅ Smooth zoom-out effect
       }}
     >
       {/* Dark overlay */}
