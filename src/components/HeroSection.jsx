@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ServiceBar from "./ServiceBar";
 
 const HeroSection = () => {
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setOffset(window.scrollY * 0.5); // Adjust scroll speed (0.5 = 50% slower)
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section className="w-screen min-h-[70vh] md:min-h-[75vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8 overflow-hidden">
-      {/* Parallax Background */}
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          transform: `translateY(${offset}px)`, // Moves background at a different speed
-          transition: "transform 0.1s linear", // Smooth scrolling effect
-        }}
-      ></div>
-
+    <section
+      className="w-full min-h-[70vh] md:min-h-[75vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+      style={{
+        backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
+        backgroundSize: "120vw auto", // 🟢 Wider image without cropping
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed", // ✅ Keeps background fixed
+      }}
+    >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-85"></div>
 
