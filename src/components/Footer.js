@@ -4,21 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      {/* New Background Section Between Insights and Footer */}
-      <section className="w-full bg-gray-200 py-12">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-semibold text-gray-800">Need More Help?</h2>
-          <p className="text-lg text-gray-600 mt-2">
-            Explore more remodeling guides or get in touch with a local expert today.
-          </p>
-          <Link
-            to="/contact-us"
-            className="inline-block mt-4 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Contact Us
-          </Link>
-        </div>
-      </section>
+    
 
       {/* Footer */}
       <footer className="py-6 bg-white text-gray-700 border-t border-gray-200 text-center">
