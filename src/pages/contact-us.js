@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const ContactUs = () => {
+  // Scroll to top when the component is loaded
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-120">
       <div className="max-w-5xl w-full bg-white rounded-lg shadow-lg p-8">
@@ -66,17 +71,6 @@ const ContactUs = () => {
             Send Message
           </button>
         </form>
-
-        {/* Google Maps (Optional) */}
-        <div className="mt-8">
-          <iframe
-            title="BathBehold Location"
-            className="w-full h-64 rounded-lg shadow-md"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093703!2d144.95373531531546!3d-37.81627927975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1f0b1b1%3A0x4a6c0f70f8f8c1d1!2sBathBehold%20Remodeling!5e0!3m2!1sen!2sus!4v1635391809533!5m2!1sen!2sus"
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
-        </div>
       </div>
     </div>
   );
