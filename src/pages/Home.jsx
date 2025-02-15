@@ -2,7 +2,7 @@
 import React from "react";
 import HeroSection from "../components/HeroSection";
 import ServicesSection from "../components/ServicesSection";
-import About from "../components/About";
+import About from "../pages/About";
 import InsightsSection from "../components/InsightsSection";
 import ScrollIndicator from "../components/ScrollIndicator";
 
@@ -13,7 +13,7 @@ function Home() {
       <HeroSection />
       <ServicesSection />
       <About />
-      <InsightsSection />
+
       <ScrollIndicator />
     </div>
   );

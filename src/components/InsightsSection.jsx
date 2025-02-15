@@ -1,4 +1,4 @@
-// src/components/InsightsSection.jsx
+ // src/components/InsightsSection.jsx
 import React from "react";
 
 const InsightsSection = () => {

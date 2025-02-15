@@ -10,7 +10,7 @@ const ServicesSection = () => {
         "A minor renovation might include painting vanity and walls, replacing toilet, fixtures, hardware and accessories.",
       price: "$3,000-10,000",
       link: "#!",
-      image: "/fred-kleber-1Gol9Qc85K0-unsplash.jpg",
+      image: "/steven-ungermann-rfcymadRRXQ-unsplash.jpg",
     },
     {
       title: "Full Bathroom Remodel",
@@ -18,7 +18,7 @@ const ServicesSection = () => {
         "A complete bathroom remodel would typically include updating all aspects of a bathroom.",
       price: "$10,000-20,000",
       link: "#!",
-      image: "/hemant-kanojiya-nI4C9UA1omQ-unsplash.jpg",
+      image: "/yevhenii-deshko-fh-iC1o2QOM-unsplash.jpg",
     },
     {
       title: "Custom/Lux Bathroom Remodel",
@@ -26,7 +26,7 @@ const ServicesSection = () => {
         "A custom/ luxury remodel will most likely include a designer and will involve more sophisticated details.",
       price: "$20,000-50,000",
       link: "#!",
-      image: "/getty-images-1-lRbejYIqw-unsplash.jpg",
+      image: "/bgimageyu.jpg",
     },
   ];
 

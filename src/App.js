@@ -5,7 +5,8 @@ import RemodelRates from "./pages/RemodelRates";
 import HowItWorks from "./pages/HowItWorks";
 import RemodelProcess from "./pages/RemodelProcess";
 import Footer from "./components/Footer"; // Adjust path if needed
-
+import About from "./pages/About"; // ✅ FIXED CASE SENSITIVITY
+import ContactUs from "./pages/contact-us"; // Import the Contact Us page
 
 function App() {
   const [scroll, setScroll] = useState(0);
@@ -77,7 +78,8 @@ function App() {
           <Route path="/remodel-rates" element={<RemodelRates />} />
                   <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remodel-process" element={<RemodelProcess />} />
-	
+	 <Route path="/about" element={<About />} />  {/* ✅ Ensure this matches your route */}
+<Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
 
