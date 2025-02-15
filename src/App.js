@@ -1,5 +1,7 @@
+// src/App.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop"; // Ensure this is at the top
 import { FaBars, FaTimes } from "react-icons/fa";
 import Home from "./pages/Home";
 import RemodelRates from "./pages/RemodelRates";
@@ -60,11 +62,11 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle mobile menu state
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <div>
+      <ScrollToTop />
       {/* Navigation Bar */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-4 py-2 ${
@@ -78,10 +80,7 @@ function App() {
           WebkitBackdropFilter: `blur(${10 - scroll * 0.05}px)`,
         }}
       >
-        {/* Logo */}
         <img src="/Bath.png" alt="Logo" className="h-12 w-auto" />
-
-        {/* Desktop Navigation (visible on md and up) */}
         <div className="hidden md:flex space-x-8">
           <Link to="/" className="text-white hover:text-gray-300 text-lg">
             Home
@@ -96,8 +95,6 @@ function App() {
             Remodel Process
           </Link>
         </div>
-
-        {/* Desktop Buttons (visible on md and up) */}
         <div className="hidden md:flex space-x-4">
           <button className="bg-blue-500 bg-opacity-70 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
             Get a Quote
@@ -106,8 +103,6 @@ function App() {
             Call Now
           </button>
         </div>
-
-        {/* Mobile Hamburger Icon (visible below md) */}
         <div className="md:hidden">
           <button onClick={toggleMobileMenu} aria-label="Toggle Menu">
             {mobileMenuOpen ? (
@@ -119,26 +114,52 @@ function App() {
         </div>
       </nav>
 
-      {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-blue-600 shadow-lg z-40">
+        <div
+          className="md:hidden absolute top-16 left-0 w-full shadow-lg z-40"
+          style={{ backgroundColor: "rgba(137, 184, 246, 0.95)" }}
+        >
           <div className="flex flex-col items-center space-y-4 py-4">
-            <Link to="/" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               Home
             </Link>
-            <Link to="/how-it-works" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/how-it-works"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               How It Works
             </Link>
-            <Link to="/remodel-rates" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/remodel-rates"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               Remodel Rates
             </Link>
-            <Link to="/remodel-process" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/remodel-process"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               Remodel Process
             </Link>
-            <Link to="/about" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/about"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               About
             </Link>
-            <Link to="/contact-us" className="text-white hover:text-gray-300 text-lg" onClick={toggleMobileMenu}>
+            <Link
+              to="/contact-us"
+              className="text-white hover:text-gray-300 text-lg"
+              onClick={toggleMobileMenu}
+            >
               Contact Us
             </Link>
           </div>
