@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import ServiceBar from "./ServiceBar";
 
 const HeroSection = () => {
-  const [bgSize, setBgSize] = useState(120); // Initial width in vw
+  const [bgSize, setBgSize] = useState(120); // initial width in vw
 
   useEffect(() => {
+    let animationFrameId;
+
     const handleScroll = () => {
-      let scrollValue = window.scrollY * 0.1; // Adjust zoom-out speed
-      let newSize = Math.max(100, 120 - scrollValue); // Prevents it from shrinking too much
-      setBgSize(newSize);
+      animationFrameId = requestAnimationFrame(() => {
+        const scrollValue = window.scrollY * 0.1; // Adjust zoom-out speed
+        const newSize = Math.max(100, 120 - scrollValue); // Prevents it from shrinking too much
+        setBgSize(newSize);
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
@@ -20,11 +27,11 @@ const HeroSection = () => {
       className="w-full min-h-[70vh] md:min-h-[75vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
-        backgroundSize: `${bgSize}vw auto`, // 🔹 Adjusting width dynamically
+        backgroundSize: `${bgSize}vw auto`, // Adjusting width dynamically
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed", // ✅ Keeps background fixed
-        transition: "background-size 0.1s ease-out", // ✅ Smooth zoom-out effect
+        // Removed backgroundAttachment: "fixed" so the background scrolls with the content
+        transition: "background-size 0.1s ease-out", // Smooth zoom-out effect
       }}
     >
       {/* Dark overlay */}
