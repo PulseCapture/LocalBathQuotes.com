@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; // Ensure this is at the top
@@ -10,6 +9,7 @@ import RemodelProcess from "./pages/RemodelProcess";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import ContactUs from "./pages/contact-us";
+import FormesterPopup from "./components/FormesterPopup"; // This triggers your Formester popup
 
 function App() {
   const [scroll, setScroll] = useState(0);
@@ -96,12 +96,15 @@ function App() {
           </Link>
         </div>
         <div className="hidden md:flex space-x-4">
-          <button className="bg-blue-500 bg-opacity-70 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
-            Get a Quote
-          </button>
-          <button className="bg-green-500 bg-opacity-70 text-white px-7 py-2 rounded-lg hover:bg-opacity-90 transition">
-            Call Now
-          </button>
+          <FormesterPopup />
+    <a
+  href="tel:18005551234"
+  className="bg-green-500 bg-opacity-70 text-white px-7 py-2 rounded-lg hover:bg-opacity-90 transition inline-block mt-[4.5%]"
+>
+  1-800-555-1234
+</a>
+
+
         </div>
         <div className="md:hidden">
           <button onClick={toggleMobileMenu} aria-label="Toggle Menu">
@@ -164,18 +167,13 @@ function App() {
             </Link>
           </div>
           <div className="flex flex-col items-center space-y-4 pb-4">
-            <button
-              className="bg-blue-500 bg-opacity-70 text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition"
-              onClick={toggleMobileMenu}
-            >
-              Get a Quote
-            </button>
-            <button
-              className="bg-green-500 bg-opacity-70 text-white px-8 py-2 rounded-lg hover:bg-opacity-90 transition"
-              onClick={toggleMobileMenu}
-            >
-              Call Now
-            </button>
+            <FormesterPopup />
+             <a
+    href="tel:18005551234"
+    className="bg-green-500 bg-opacity-70 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition inline-block text-lg"
+  >
+    1-800-555-1234
+  </a>
           </div>
         </div>
       )}
