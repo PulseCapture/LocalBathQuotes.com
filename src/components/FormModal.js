@@ -20,67 +20,122 @@ const FormModal = ({ isOpen, closePopup }) => {
   };
 
   return (
-    <div className="overlay">
-      {/* Updated inline CSS */}
-      <style>{`
-        /* Base styles with moderately increased font sizes */
-        body {
-          font-family: 'Roboto', sans-serif;
-          margin: 0;
-          padding: 0;
-        }
-        /* Fullscreen overlay centers the modal */
-        .overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.8);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 1000;
-          padding: 10px;
-        }
-        /* Fixed modal container: 85% of viewport width & height */
-        .floating-form {
-          width: 85vw;
-          height: 85vh;
-          margin: auto;
-        }
-        /* Slide container fills the modal and centers its content */
-        .slide-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          background: #2c3e50;
-          border: 2px solid #34495e;
-          border-radius: 4px;
-          padding: 10px;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-        }
-        /* Exit button */
-        .slide-container .exit-btn {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          font-size: 16px;
-          background: #89B8F6;
-          border: 2px solid #89B8F6;
-          border-radius: 2px;
-          color: #ecf0f1;
-          padding: 4px 8px;
-          cursor: pointer;
-          transition: background 0.3s ease, border-color 0.3s ease;
-          z-index: 1;
-        }
-        .slide-container .exit-btn:hover {
-          background: #68A7E0;
-          border-color: #68A7E0;
-        }
+<div className="overlay">
+  {/* Updated inline CSS */}
+  <style>{`
+    /* Base styles with moderately increased font sizes */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+/* Overlay: full viewport on desktop; on mobile, start below a 64px header */
+  .overlay {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px;
+    overflow: auto;
+  }
+  /* Desktop: overlay covers the entire viewport */
+  @media (min-width: 768px) {
+    .overlay {
+      top: 0;
+      height: 100vh;
+    }
+  }
+  /* Mobile: overlay starts below the header (assumed 64px tall) */
+  @media (max-width: 767px) {
+    .overlay {
+      top: 64px; /* Adjust this if your mobile header is a different height */
+      height: calc(100vh - 64px);
+    }
+  }  /* Fixed modal container: 85% of viewport width & height */
+  /* Base styles */
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  /* Fullscreen overlay */
+  .overlay {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px;
+    overflow: auto;
+  }
+  /* Desktop: overlay covers full viewport */
+  @media (min-width: 768px) {
+    .overlay {
+      top: 0;
+      height: 100vh;
+    }
+  }
+  /* Mobile: overlay starts below header (assumed header = 64px) */
+  @media (max-width: 767px) {
+    .overlay {
+      top: 64px;
+      height: calc(100vh - 64px);
+    }
+  }
+  /* Floating form container: Desktop uses 85vh */
+  .floating-form {
+    width: 85vw;
+    height: 85vh;
+    margin: auto;
+  }
+  /* Mobile: reduce modal height to 60vh so bottom is visible */
+  @media (max-width: 767px) {
+    .floating-form {
+      height: 60vh;
+    }
+  }
+  /* Slide container for the form content */
+  .slide-container {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    background: #2c3e50;
+    border: 2px solid #34495e;
+    border-radius: 4px;
+    padding: 10px;
+    /* Added bottom padding so buttons aren't hidden */
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  /* Exit button */
+  .slide-container .exit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    background: #89B8F6;
+    border: 2px solid #89B8F6;
+    border-radius: 2px;
+    color: #ecf0f1;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
+  }
+  .slide-container .exit-btn:hover {
+    background: #68A7E0;
+    border-color: #68A7E0;
+  }
         /* Each step's content is centered both vertically & horizontally */
         .step-content {
           flex: 1;

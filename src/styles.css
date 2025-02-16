@@ -13,12 +13,13 @@
 /* Ensure full viewport width and height */
 html, body, #root {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh; /* Use min-height instead of height */
   overflow-x: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 
 /* Smooth scrolling */
 html {

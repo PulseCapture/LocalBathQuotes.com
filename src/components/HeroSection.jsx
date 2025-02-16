@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ServiceBar from "./ServiceBar";
+import FormesterPopup from "./FormesterPopup";
 
 const HeroSection = () => {
   const [bgSize, setBgSize] = useState(120); // initial width in vw
@@ -52,7 +53,7 @@ const HeroSection = () => {
             Work with Local Professionals to receive a Free Estimate for your dream bathroom. Get started today
             <span className="text-[#89B8F6]">!</span>
           </h3>
-          <ServiceBar />
+          <FormesterPopup />
         </div>
       </div>
     </section>

@@ -6,10 +6,8 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
-    // A slight delay can help, but often 0ms works fine.
-    setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }, 0);
+    // Scroll after DOM mutations, with no delay
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [pathname]);
 
   return null;
