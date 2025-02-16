@@ -1,13 +1,14 @@
-// src/components/ScrollToTop.jsx
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
-    // Scroll after DOM mutations, with no delay
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  useEffect(() => {
+    // ✅ Instantly scrolls to the top when navigating to a new page
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 50);
   }, [pathname]);
 
   return null;
