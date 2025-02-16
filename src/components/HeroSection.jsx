@@ -24,7 +24,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="w-full min-h-[70vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+      className="w-full min-h-[60vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
         backgroundSize: `${bgSize}vw auto`, // Adjusting width dynamically

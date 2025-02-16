@@ -68,9 +68,6 @@ function App() {
   return (
     <div>
       <ScrollToTop />
-
-
-{/* Navigation Bar */}
 {/* Navigation Bar */}
 <nav
   className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-5 py-2 ${
@@ -87,7 +84,7 @@ function App() {
   {/* Logo */}
   <img src="/Bath.png" alt="Logo" className="h-12 w-auto" />
 
-  {/* Navigation Links (Centered) */}
+  {/* Desktop Navigation Links (Hidden on Mobile) */}
   <div className="hidden md:flex space-x-8 items-center">
     <Link to="/" className="text-white hover:text-gray-300 text-lg">Home</Link>
     <Link to="/how-it-works" className="text-white hover:text-gray-300 text-lg">How It Works</Link>
@@ -113,70 +110,66 @@ function App() {
       1-800-555-1234
     </a>
   </div>
+
+  {/* Mobile Menu Button (Inside <nav> for better alignment) */}
+  <div className="md:hidden flex items-center">
+    <button onClick={toggleMobileMenu} aria-label="Toggle Menu">
+      {mobileMenuOpen ? (
+        <FaTimes className="text-white h-8 w-8" />
+      ) : (
+        <FaBars className="text-white h-8 w-8" />
+      )}
+    </button>
+  </div>
 </nav>
 
 
 
-      {mobileMenuOpen && (
-        <div
-          className="md:hidden absolute top-16 left-0 w-full shadow-lg z-40"
-          style={{ backgroundColor: "rgba(137, 184, 246, 0.95)" }}
-        >
-          <div className="flex flex-col items-center space-y-4 py-4">
-            <Link
-              to="/"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              Home
-            </Link>
-            <Link
-              to="/how-it-works"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              How It Works
-            </Link>
-            <Link
-              to="/remodel-rates"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              Remodel Rates
-            </Link>
-            <Link
-              to="/remodel-process"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              Remodel Process
-            </Link>
-            <Link
-              to="/about"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              About
-            </Link>
-            <Link
-              to="/contact-us"
-              className="text-white hover:text-gray-300 text-lg"
-              onClick={toggleMobileMenu}
-            >
-              Contact Us
-            </Link>
-          </div>
-          <div className="flex flex-col items-center space-y-4 pb-4">
-            <FormesterPopup />
-             <a
-    href="tel:18005551234"
-    className="bg-green-500 bg-opacity-70 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition inline-block text-lg"
+{/* Mobile Menu Dropdown */}
+{mobileMenuOpen && (
+  <div
+    className="absolute top-16 left-0 w-full bg-[#89B8F6]/90 shadow-lg z-50 flex flex-col items-center space-y-4 py-6 transition-all duration-300 border-t border-white"
   >
-    1-800-555-1234
-  </a>
-          </div>
-        </div>
-      )}
+    {/* Navigation Links */}
+    <Link to="/" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      Home
+    </Link>
+    <Link to="/how-it-works" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      How It Works
+    </Link>
+    <Link to="/remodel-rates" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      Remodel Rates
+    </Link>
+    <Link to="/remodel-process" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      Remodel Process
+    </Link>
+    <Link to="/about" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      About
+    </Link>
+    <Link to="/contact-us" className="text-white hover:text-gray-300 text-lg block w-full text-center py-2" onClick={toggleMobileMenu}>
+      Contact Us
+    </Link>
+
+    {/* Buttons Section with Borders */}
+    <div className="flex flex-col items-center space-y-3 w-full px-6 mt-4">
+      {/* Get Started Now Button */}
+      <button
+        onClick={() => window.Formester?.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4")}
+        className="bg-[#6faedb] text-white px-6 py-2 rounded-lg shadow-lg hover:bg-[#5b9bcf] transition flex items-center justify-center w-full border border-white"
+      >
+        Get Started Now
+      </button>
+
+      {/* Call Now Button */}
+      <a
+        href="tel:18005551234"
+        className="bg-green-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-600 transition flex items-center justify-center w-full border border-white"
+      >
+        1-800-555-1234
+      </a>
+    </div>
+  </div>
+)}
 
       {/* Main Content */}
       <div className="bg-gray-300 w-full px-[5px] pt-24">
