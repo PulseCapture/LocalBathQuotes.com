@@ -1,4 +1,5 @@
 import React from "react";
+import FormesterPopup from "../components/FormesterPopup"; // Adjust the path if necessary
 
 const About = () => {
   return (
@@ -56,12 +57,8 @@ const About = () => {
           <p className="text-lg text-gray-700 mb-6">
             Get free, no-obligation quotes from trusted local contractors today.
           </p>
-          <a
-            href="/get-quotes"
-            className="inline-block bg-[#89B8F6] text-white py-3 px-8 rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            Get Free Quotes
-          </a>
+          {/* Render the FormesterPopup component to trigger the popup */}
+          <FormesterPopup />
         </div>
       </div>
     </section>
