@@ -11,6 +11,7 @@ import About from "./pages/About";
 import ContactUs from "./pages/contact-us";
 import FormesterPopup from "./components/FormesterPopup"; // This triggers your Formester popup
 
+
 function App() {
   const [scroll, setScroll] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -67,55 +68,54 @@ function App() {
   return (
     <div>
       <ScrollToTop />
-      {/* Navigation Bar */}
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-4 py-2 ${
-          isScrolling ? "bg-blue-700 shadow-lg" : "bg-blue-600"
-        }`}
-        style={{
-          background: `linear-gradient(to bottom, rgba(50, 90, 100, ${
-            scroll ? 0.7 - scroll * 0.002 : 0.7
-          }), rgba(50, 90, 160, ${scroll ? 0.15 - scroll * 0.001 : 0.15}))`,
-          backdropFilter: `blur(${10 - scroll * 0.05}px)`,
-          WebkitBackdropFilter: `blur(${10 - scroll * 0.05}px)`,
-        }}
-      >
-        <img src="/Bath.png" alt="Logo" className="h-12 w-auto" />
-        <div className="hidden md:flex space-x-8">
-          <Link to="/" className="text-white hover:text-gray-300 text-lg">
-            Home
-          </Link>
-          <Link to="/how-it-works" className="text-white hover:text-gray-300 text-lg">
-            How It Works
-          </Link>
-          <Link to="/remodel-rates" className="text-white hover:text-gray-300 text-lg">
-            Remodel Rates
-          </Link>
-          <Link to="/remodel-process" className="text-white hover:text-gray-300 text-lg">
-            Remodel Process
-          </Link>
-        </div>
-        <div className="hidden md:flex space-x-4">
-          <FormesterPopup />
-    <a
-  href="tel:18005551234"
-  className="bg-green-500 bg-opacity-70 text-white px-7 py-2 rounded-lg hover:bg-opacity-90 transition inline-block mt-[4.5%]"
+
+
+{/* Navigation Bar */}
+{/* Navigation Bar */}
+<nav
+  className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-5 py-2 ${
+    isScrolling ? "bg-blue-700 shadow-lg" : "bg-blue-600"
+  }`}
+  style={{
+    background: `linear-gradient(to bottom, rgba(50, 90, 100, ${
+      scroll ? 0.7 - scroll * 0.002 : 0.7
+    }), rgba(50, 90, 160, ${scroll ? 0.15 - scroll * 0.001 : 0.15}))`,
+    backdropFilter: `blur(${10 - scroll * 0.05}px)`,
+    WebkitBackdropFilter: `blur(${10 - scroll * 0.05}px)`,
+  }}
 >
-  1-800-555-1234
-</a>
+  {/* Logo */}
+  <img src="/Bath.png" alt="Logo" className="h-12 w-auto" />
+
+  {/* Navigation Links (Centered) */}
+  <div className="hidden md:flex space-x-8 items-center">
+    <Link to="/" className="text-white hover:text-gray-300 text-lg">Home</Link>
+    <Link to="/how-it-works" className="text-white hover:text-gray-300 text-lg">How It Works</Link>
+    <Link to="/remodel-rates" className="text-white hover:text-gray-300 text-lg">Remodel Rates</Link>
+    <Link to="/remodel-process" className="text-white hover:text-gray-300 text-lg">Remodel Process</Link>
+  </div>
+
+  {/* Buttons (Now perfectly aligned) */}
+  <div className="hidden md:flex space-x-4 items-center">
+    {/* "Get Started Now" Button (Same Size as Call Now Button) */}
+    <button
+      onClick={() => window.Formester?.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4")}
+      className="bg-[#89B8F6] text-white px-7 py-2 rounded-lg shadow-lg hover:bg-[#6faedb] transition flex items-center justify-center"
+    >
+      Get Started Now
+    </button>
+
+    {/* Call Now Button */}
+    <a
+      href="tel:18005551234"
+      className="bg-green-500 bg-opacity-70 text-white px-7 py-2 rounded-lg hover:bg-opacity-90 transition flex items-center justify-center"
+    >
+      1-800-555-1234
+    </a>
+  </div>
+</nav>
 
 
-        </div>
-        <div className="md:hidden">
-          <button onClick={toggleMobileMenu} aria-label="Toggle Menu">
-            {mobileMenuOpen ? (
-              <FaTimes className="text-white h-8 w-8" />
-            ) : (
-              <FaBars className="text-white h-8 w-8" />
-            )}
-          </button>
-        </div>
-      </nav>
 
       {mobileMenuOpen && (
         <div
