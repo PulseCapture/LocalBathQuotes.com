@@ -1,14 +1,15 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Ensure this path matches your project structure
+    "./src/**/*.{js,jsx,ts,tsx}", // ✅ Ensures all JSX/TSX files are processed
+    "./public/index.html", // ✅ Ensures Tailwind applies to the HTML file
   ],
   theme: {
     extend: {
       colors: {
         'custom-blue': '#89B8F6',
         'custom-hover-blue': '#6faedb',
-        'overlay-gray': '#4a5568', // Equivalent to bg-gray-700
+        'overlay-gray': '#4a5568',
       },
       width: {
         '25rem': '25rem',
