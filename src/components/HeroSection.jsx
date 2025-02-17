@@ -1,50 +1,29 @@
-import React, { useEffect, useState } from "react";
+// src/components/HeroSection.jsx
+import React from "react";
 import FormesterPopup from "./FormesterPopup";
 
 const HeroSection = () => {
-  const [bgSize, setBgSize] = useState(120); // initial width in vw
-
-  useEffect(() => {
-    let animationFrameId;
-
-    const handleScroll = () => {
-      animationFrameId = requestAnimationFrame(() => {
-        const scrollValue = window.scrollY * 0.1; // Adjust zoom-out speed
-        const newSize = Math.max(100, 120 - scrollValue); // Prevents it from shrinking too much
-        setBgSize(newSize);
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
   return (
     <section
-      className="w-full min-h-[60vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
+      className="w-full min-h-[65vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-8"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
-        backgroundSize: `${bgSize}vw auto`, // Adjusting width dynamically
+        backgroundSize: "cover",          // Static background size
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        // Removed backgroundAttachment: "fixed" so the background scrolls with the content
-        transition: "background-size 0.1s ease-out", // Smooth zoom-out effect
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-85"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-86"></div>
 
       {/* Content container */}
-      <div className="relative w-full max-w-6xl px-4 text-left z-10 flex items-center justify-center">
+      <div className="relative w-full max-w-7xl px-3 text-left z-10 flex items-center justify-center">
         {/* Divider Bar (visible on medium screens and up) */}
         <div className="hidden sm:block mr-4">
           <div className="w-1 bg-[#89B8F6] h-12"></div>
         </div>
         <div className="flex flex-col">
-          <h2 className="text-5xl md:text-6xl font-medium mb-6 text-white">
+          <h2 className="text-5xl md:text-6xl font-medium mb-8 text-white">
             <span className="text-[#89B8F6]">Transform</span> your Bathroom with Local Expert Remodel Contractors
             <span className="text-[#89B8F6]">.</span>
           </h2>

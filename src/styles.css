@@ -10,16 +10,14 @@
   box-sizing: border-box;
 }
 
-/* Ensure full viewport width and height */
 html, body, #root {
-  width: 100vw;
-  min-height: 100vh; /* Use min-height instead of height */
+  width: 100%;
+  min-height: 100vh; /* Allows the content to grow beyond the viewport */
   overflow-x: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 /* Smooth scrolling */
 html {

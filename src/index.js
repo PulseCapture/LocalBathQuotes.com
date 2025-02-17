@@ -1,7 +1,7 @@
-// index.js or main.js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax"; // <-- Import here
 import App from "./App";
 import "./index.css";
 
@@ -10,10 +10,11 @@ const root = ReactDOM.createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter
-      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-    >
-      <App />
+    <BrowserRouter>
+      <ParallaxProvider>
+        <App />
+
+      </ParallaxProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

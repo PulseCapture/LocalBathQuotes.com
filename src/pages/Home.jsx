@@ -12,8 +12,7 @@ function Home() {
       <HeroSection />
       <ServicesSection />
       <About />
-
-      <ScrollIndicator />
+    <ScrollIndicator />
     </div>
   );
 }

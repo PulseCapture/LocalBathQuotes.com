@@ -6,10 +6,10 @@ const About = () => {
     <section className="bg-gray-120 py-16">
       <div className="max-w-6xl mx-auto px-4">
         {/* Top Gray Divider */}
-        <hr className="border-t border-gray-300 mb-8" />
+        <hr className="border-t border-gray-300 mb-" />
 
         {/* Blue Divider */}
-        <hr className="border-t-4 border-[#89B8F6] w-24 mx-auto mb-4" />
+        <hr className="border-t-4 border-[#89B8F6] w-24 mx-auto mb-5" />
 
         {/* Intro Heading */}
         <div className="text-center mb-12">
