@@ -15,10 +15,10 @@ const HeroSection = () => {
       }}
     >
       {/* Tint Overlay (this adds a subtle dark tint to the background) */}
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-35"></div>
 
       {/* Dark overlay (original gradient effect) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-86"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-89"></div>
 
       {/* Content container (stays on top and is NOT affected by the tint) */}
       <div className="relative w-full max-w-7xl px-3 text-left z-10 flex items-center justify-center">

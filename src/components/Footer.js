@@ -1,6 +1,5 @@
 // src/components/Footer.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -31,8 +30,7 @@ const Footer = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount (in case the page loads scrolled down)
-    handleScroll();
+    handleScroll(); // Run once on mount (in case the page loads scrolled down)
     return () => {
       window.removeEventListener("scroll", handleScroll);
       if (timer) clearTimeout(timer);
@@ -53,7 +51,7 @@ const Footer = () => {
           }`}
         >
           <a
-            href="https://privacy.bathbehold.com"
+            href="https://pulsecapture.com/privacy-policy"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -62,7 +60,7 @@ const Footer = () => {
           </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://terms.bathbehold.com"
+            href="https://pulsecapture.com/terms-of-use"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -71,7 +69,7 @@ const Footer = () => {
           </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://about.bathbehold.com"
+            href="https://pulsecapture.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -80,7 +78,7 @@ const Footer = () => {
           </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://donotsell.bathbehold.com"
+            href="https://pulsecapture.com/do-not-sell"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -89,7 +87,7 @@ const Footer = () => {
           </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://california.bathbehold.com"
+            href="https://pulsecapture.com/california-privacy-rights"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -98,7 +96,7 @@ const Footer = () => {
           </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://partners.bathbehold.com"
+            href="https://pulsecapture.com/partners"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"
@@ -106,12 +104,17 @@ const Footer = () => {
             Partners
           </a>
           <span className="text-gray-500">|</span>
-          <Link to="/contact-us" className="text-blue-400 hover:underline font-bold">
+          <a
+            href="https://pulsecapture.com/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline font-bold"
+          >
             Contact Us
-          </Link>
+          </a>
           <span className="text-gray-500">|</span>
           <a
-            href="https://pulse.bathbehold.com"
+            href="https://pulsecapture.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline font-bold"

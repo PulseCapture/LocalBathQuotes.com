@@ -1,3 +1,4 @@
+// src/components/About.jsx
 import React from "react";
 import FormesterPopup from "../components/FormesterPopup"; // Adjust the path if necessary
 
@@ -17,18 +18,18 @@ const About = () => {
             About <span className="text-[#89B8F6]">BathBehold.com</span>
           </h1>
           <p className="text-xl text-gray-600">
-            Simplifying your bathroom remodel journey by connecting you with trusted, licensed professionals.
+            Your trusted source for connecting with top-rated bathroom remodeling professionals in your area.
           </p>
         </div>
 
         {/* Informational Panels */}
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Our Mission */}
+          {/* Our Purpose */}
           <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Purpose</h2>
             <p className="text-gray-700">
-              We believe every homeowner deserves a stress-free remodeling experience.
-              Our mission is to deliver fair pricing, expert guidance, and exceptional craftsmanship in every project.
+              BathBehold.com simplifies the search for reputable bathroom remodelers by providing homeowners with
+              access to licensed, vetted professionals. We help you find the right contractor for your needs quickly and easily.
             </p>
           </div>
 
@@ -36,26 +37,27 @@ const About = () => {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-semibold text-gray-800 mb-3">How It Works</h2>
             <p className="text-gray-700">
-              Request free quotes from our network of licensed contractors.
-              Compare pricing, read verified reviews, and choose the best option for your remodel—all in one place.
+              Simply submit a request, and we’ll match you with pre-screened bathroom remodeling professionals in your area.
+              Compare quotes, review credentials, and choose the best pro for your project all in one place.
             </p>
           </div>
 
-          {/* Why Choose Us */}
+          {/* Why Use BathBehold.com? */}
           <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Why Choose Us</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-3">Why Use BathBehold.com?</h2>
             <p className="text-gray-700">
-              With years of experience and a commitment to transparency, we ensure personalized service and competitive quotes,
-              making your remodeling process simple and stress-free.
+              Save time by letting us connect you with experienced, licensed, and insured remodelers.  
+              No need to call multiple contractors—we bring the best options to you.  
+              Get multiple quotes and find a solution that fits your budget and vision.
             </p>
           </div>
         </div>
 
         {/* Call-to-Action */}
         <div className="text-center mt-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Ready to Start Your Remodel?</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Start Your Remodel Today</h2>
           <p className="text-lg text-gray-700 mb-6">
-            Get free, no-obligation quotes from trusted local contractors today.
+            Get free, no-obligation quotes from experienced local contractors who specialize in bathroom remodeling.
           </p>
           {/* Render the FormesterPopup component to trigger the popup */}
           <FormesterPopup />

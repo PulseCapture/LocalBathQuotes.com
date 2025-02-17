@@ -11,10 +11,10 @@ const FormesterPopup = () => {
 
       if (window.innerWidth < 768) {
         // For mobile devices, adjust height to be slightly smaller
-        setPopupHeight(`${viewportHeight * 0.98}px`);
+        setPopupHeight(`${viewportHeight * 0.95}px`);
       } else {
         // On desktop, maintain the original size
-        setPopupHeight("90vh");
+        setPopupHeight("85vh");
       }
     };
 
@@ -51,7 +51,7 @@ const FormesterPopup = () => {
       {/* The Formester Popup Web Component with Responsive Height */}
       <formester-popup
         id="bd091a21-3221-465d-b833-c3a91910c6b4"
-        url="https://qpmpwkux.formester.com/f/bd091a21-3221-465d-b833-c3a91910c6b4"
+        url="https://qpmpwkux.formester.com/f/a875d46e-4aa1-481b-bd45-77d4c1e3d5b1"
         style={{
           minHeight: popupHeight,
           maxHeight: popupHeight,

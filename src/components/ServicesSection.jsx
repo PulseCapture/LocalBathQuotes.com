@@ -1,15 +1,17 @@
 // src/components/ServicesSection.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { highlightExclamationMarks } from "../utils/textUtils"; // Optional, if you want to use it
 
 const ServicesSection = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
   const services = [
     {
       title: "Minor Bathroom Renovation",
       description:
         "A minor renovation might include painting vanity and walls, replacing toilet, fixtures, hardware and accessories.",
       price: "$3,000-10,000",
-      link: "#!",
       image: "/steven-ungermann-rfcymadRRXQ-unsplash.jpg",
     },
     {
@@ -17,7 +19,6 @@ const ServicesSection = () => {
       description:
         "A complete bathroom remodel would typically include updating all aspects of a bathroom.",
       price: "$10,000-20,000",
-      link: "#!",
       image: "/yevhenii-deshko-fh-iC1o2QOM-unsplash.jpg",
     },
     {
@@ -25,7 +26,6 @@ const ServicesSection = () => {
       description:
         "A custom/ luxury remodel will most likely include a designer and will involve more sophisticated details.",
       price: "$20,000-50,000",
-      link: "#!",
       image: "/bgimageyu.jpg",
     },
   ];
@@ -56,9 +56,13 @@ const ServicesSection = () => {
               <h4 className="text-xl font-bold mb-2">{service.title}</h4>
               <p className="text-gray-700 mb-4">{service.description}</p>
               <p className="text-lg font-semibold mb-4">{service.price}</p>
-              <a href={service.link} className="text-blue-500 hover:underline">
+              {/* Updated "Learn More" links to navigate like header button */}
+              <button
+                onClick={() => navigate("/remodel-rates")}
+                className="text-blue-500 hover:underline"
+              >
                 Learn more..
-              </a>
+              </button>
             </div>
           ))}
         </div>
