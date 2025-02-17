@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -11,20 +11,19 @@ import About from "./pages/About";
 import ContactUs from "./pages/contact-us";
 import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
-
+import FormesterPopup from "./components/FormesterPopup";
 
 function App() {
-  // (Your header and mobile menu code remains unchanged)
   const [scroll, setScroll] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
   const hasLogged = useRef(false);
 
   useEffect(() => {
     if (!hasLogged.current) {
       console.log(
         `%c
-
        
   🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
 
@@ -53,27 +52,25 @@ function App() {
     }
   }, []);
 
- useEffect(() => {
-  let ticking = false;
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY);
+      setIsScrolling(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const handleScroll = () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        setScroll(window.scrollY);
-        setIsScrolling(window.scrollY > 10);
-        ticking = false;
-      });
-      ticking = true;
+  // Disable background scroll when popup is open
+  useEffect(() => {
+    if (popupOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
-  };
-
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
+  }, [popupOpen]);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
-
   const topAlpha = Math.min(0.7 + scroll * 0.002, 1);
   const bottomAlpha = Math.min(0.15 + scroll * 0.001, 1);
 
@@ -82,8 +79,8 @@ function App() {
       <ScrollToTop />
       {/* Navigation Bar */}
       <nav
-      className={`fixed top- left-0 w-full z-50 transition-all flex items-center justify-between px-5 py-2 ${
-  isScrolling ? "md:shadow-lg" : ""
+        className={`fixed top-0 left-0 w-full z-50 transition-all flex items-center justify-between px-2 py-2 ${
+          isScrolling ? "shadow-lg" : ""
         }`}
         style={{
           background: `linear-gradient(
@@ -179,7 +176,7 @@ function App() {
       )}
       <div className="bg-gray-300 w-full px-[5px] pt-24">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
           <Route path="/remodel-rates" element={<RemodelRates />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/remodel-process" element={<RemodelProcess />} />
@@ -188,7 +185,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
-      <ScrollIndicator />
+      {/* Hide scroll indicator when popup is open */}
+      {!popupOpen && <ScrollIndicator />}
     </div>
   );
 }
