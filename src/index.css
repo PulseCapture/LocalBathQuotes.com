@@ -10,6 +10,13 @@
   box-sizing: border-box;
 }
 
+/* Disable background scrolling when the popup is open */
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+
 /* Ensure full viewport width and height */
 html, body, #root {
   width: 100vw;

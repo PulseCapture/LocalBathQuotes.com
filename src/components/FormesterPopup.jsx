@@ -1,9 +1,35 @@
-import React, { useEffect } from "react";
+// src/components/FormesterPopup.jsx
+import React, { useEffect, useState } from "react";
 
 const FormesterPopup = () => {
-  // Load the Formester popup script if not already present
+  const [popupHeight, setPopupHeight] = useState("90vh");
+
   useEffect(() => {
-    if (!document.querySelector('script[src="https://qpmpwkux.formester.com/widget/popup.js"]')) {
+    // Function to adjust height dynamically
+    const updatePopupHeight = () => {
+      const viewportHeight = window.innerHeight;
+
+      if (window.innerWidth < 768) {
+        // For mobile devices, adjust height to be slightly smaller
+        setPopupHeight(`${viewportHeight * 0.98}px`);
+      } else {
+        // On desktop, maintain the original size
+        setPopupHeight("90vh");
+      }
+    };
+
+    updatePopupHeight(); // Set initial height
+
+    window.addEventListener("resize", updatePopupHeight);
+    return () => {
+      window.removeEventListener("resize", updatePopupHeight);
+    };
+  }, []);
+
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src="https://qpmpwkux.formester.com/widget/popup.js"]');
+
+    if (!existingScript) {
       const script = document.createElement("script");
       script.src = "https://qpmpwkux.formester.com/widget/popup.js";
       script.type = "module";
@@ -12,7 +38,6 @@ const FormesterPopup = () => {
     }
   }, []);
 
-  // Function to open the popup
   const openPopup = () => {
     if (window.Formester && typeof window.Formester.openPopup === "function") {
       window.Formester.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4");
@@ -23,13 +48,17 @@ const FormesterPopup = () => {
 
   return (
     <div>
-      {/* The Formester Popup Web Component */}
+      {/* The Formester Popup Web Component with Responsive Height */}
       <formester-popup
         id="bd091a21-3221-465d-b833-c3a91910c6b4"
         url="https://qpmpwkux.formester.com/f/bd091a21-3221-465d-b833-c3a91910c6b4"
-        width="90%"
-        height="95%"
+        style={{
+          minHeight: popupHeight,
+          maxHeight: popupHeight,
+          overflow: "hidden",
+        }}
       ></formester-popup>
+
       {/* Button to trigger the popup */}
       <button
         onClick={openPopup}
