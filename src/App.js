@@ -11,6 +11,7 @@ import About from "./pages/About";
 import ContactUs from "./pages/contact-us";
 import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
+import FormesterPopup from "./components/FormesterPopup"; // Adjust the path if necessary
 
 
 function App() {
