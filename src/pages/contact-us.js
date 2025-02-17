@@ -1,17 +1,20 @@
+// src/components/ContactUs.jsx
 import React, { useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const ContactUs = () => {
-  // Scroll to top when the component is loaded
+  // Scroll to top when the component loads
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-120">
-      <div className="max-w-5xl w-full bg-white rounded-lg shadow-lg p-9">
+<div className="min-h-screen flex justify-center items-start pt-0 p-6 bg-gray-120">
+  <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
         {/* Page Heading */}
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">Contact BathBehold</h1>
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">
+          Contact BathBehold
+        </h1>
         <p className="text-center text-gray-600 mb-6">
           Have questions about your bathroom remodel? Get in touch with us today!
         </p>

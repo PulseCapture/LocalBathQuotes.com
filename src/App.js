@@ -82,7 +82,7 @@ function App() {
       <ScrollToTop />
       {/* Navigation Bar */}
       <nav
-      className={`fixed top- left-0 w-full z-50 transition-all flex items-center justify-between px-2 py-2 ${
+      className={`fixed top- left-0 w-full z-50 transition-all flex items-center justify-between px-5 py-2 ${
   isScrolling ? "md:shadow-lg" : ""
         }`}
         style={{
