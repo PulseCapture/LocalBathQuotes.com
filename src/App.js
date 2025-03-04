@@ -1,19 +1,18 @@
 // src/App.js
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Home from "./pages/Home";
-import RemodelRates from "./pages/RemodelRates";
-import HowItWorks from "./pages/HowItWorks";
-import RemodelProcess from "./pages/RemodelProcess";
-import About from "./pages/About";
-import ContactUs from "./pages/contact-us";
 import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
+import LoadingSpinner from "./components/LoadingSpinner"; // Add a loading spinner component
 
-
-
+const Home = lazy(() => import("./pages/Home"));
+const RemodelRates = lazy(() => import("./pages/RemodelRates"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const RemodelProcess = lazy(() => import("./pages/RemodelProcess"));
+const About = lazy(() => import("./pages/About"));
+const ContactUs = lazy(() => import("./pages/contact-us"));
 
 function App() {
   const [scroll, setScroll] = useState(0);
@@ -177,14 +176,16 @@ function App() {
         </div>
       )}
       <div className="bg-gray-300 w-full px-[5px] pt-24">
-        <Routes>
-          <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
-          <Route path="/remodel-rates" element={<RemodelRates />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/remodel-process" element={<RemodelProcess />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
+            <Route path="/remodel-rates" element={<RemodelRates />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/remodel-process" element={<RemodelProcess />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
       {/* Hide scroll indicator when popup is open */}
