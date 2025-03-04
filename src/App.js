@@ -14,6 +14,7 @@ import ScrollIndicator from "./components/ScrollIndicator";
 
 
 
+
 function App() {
   const [scroll, setScroll] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
