@@ -19,14 +19,14 @@ const ServicesSection = () => {
       description:
         "A complete bathroom remodel would typically include updating all aspects of a bathroom.",
       price: "$10,000-20,000",
-      image: "/yevhenii-deshko-fh-iC1o2QOM-unsplash.jpg",
+      image: "/yevhenii-deshko-fh-iC1o2QOM-unsplash.svg",
     },
     {
       title: "Custom/Lux Bathroom Remodel",
       description:
         "A custom/ luxury remodel will most likely include a designer and will involve more sophisticated details.",
       price: "$20,000-50,000",
-      image: "/bgimageyu.jpg",
+      image: "/steven-ungermann-rfcymadRRXQ-unsplash.svg",
     },
   ];
 
