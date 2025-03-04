@@ -58,10 +58,10 @@ useEffect(() => {
   const handleScroll = () => {
     requestAnimationFrame(() => {
       setScroll(window.scrollY);
-      setIsScrolling(window.scrollY > 0);
+      setIsScrolling(window.scrollY > 10);
     });
   };
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, { passive: true });
   return () => window.removeEventListener("scroll", handleScroll);
 }, []);
 

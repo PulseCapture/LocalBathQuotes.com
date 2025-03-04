@@ -16,6 +16,9 @@ body.no-scroll {
   height: 100vh;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 /* Ensure full viewport width and height */
 html, body, #root {
