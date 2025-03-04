@@ -54,14 +54,16 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
+useEffect(() => {
+  const handleScroll = () => {
+    requestAnimationFrame(() => {
       setScroll(window.scrollY);
-      setIsScrolling(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setIsScrolling(window.scrollY > 0);
+    });
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   // Disable background scroll when popup is open
   useEffect(() => {
@@ -178,13 +180,6 @@ function App() {
       )}
       <div className="bg-gray-300 w-full px-[5px] pt-24">
         <Suspense fallback={<LoadingSpinner />}>
-          <img 
-            src="path/to/image.jpg" 
-            srcset="path/to/image-small.jpg 600w, path/to/image-medium.jpg 1000w, path/to/image-large.jpg 2000w"
-            sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 2000px"
-            alt="Description" 
-            className="responsive-img"
-          />
           <Routes>
             <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
             <Route path="/remodel-rates" element={<RemodelRates />} />

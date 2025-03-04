@@ -5,7 +5,7 @@ import FormesterPopup from "./FormesterPopup";
 const HeroSection = () => {
   return (
     <section
-      className="w-full min-h-[60vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-7"
+      className="w-full min-h-[60vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-1"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
         backgroundSize: "cover",
