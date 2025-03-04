@@ -5,7 +5,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
+import './App.css';
 import LoadingSpinner from "./components/LoadingSpinner"; // Add a loading spinner component
+
 
 const Home = lazy(() => import("./pages/Home"));
 const RemodelRates = lazy(() => import("./pages/RemodelRates"));
@@ -177,6 +179,13 @@ function App() {
       )}
       <div className="bg-gray-300 w-full px-[5px] pt-24">
         <Suspense fallback={<LoadingSpinner />}>
+<img 
+          src="path/to/image.jpg" 
+          srcset="path/to/image-small.jpg 600w, path/to/image-medium.jpg 1000w, path/to/image-large.jpg 2000w"
+          sizes="(max-width: 600px) 600px, (max-width: 1000px) 1000px, 2000px"
+          alt="Description" 
+          className="responsive-img"
+        />
           <Routes>
             <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
             <Route path="/remodel-rates" element={<RemodelRates />} />
