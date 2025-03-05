@@ -1,4 +1,3 @@
-// src/hooks/useFooterReveal.js
 import { useState, useEffect } from "react";
 
 export const useFooterReveal = (threshold = 200, delay = 500) => {
