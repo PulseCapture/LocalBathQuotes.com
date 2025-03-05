@@ -1,0 +1,11 @@
+/* src/components/Footer.css */
+.footer {
+  position: fixed;
+  bottom: -100px; /* Start hidden */
+  width: 100%;
+  transition: bottom 0.5s ease-in-out;
+}
+
+.footer.revealed {
+  bottom: 0; /* Reveal when scrolled */
+}

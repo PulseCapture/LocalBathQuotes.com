@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
@@ -6,7 +5,8 @@ import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
 import Header from "./components/Header";
 import './App.css';
-import LoadingSpinner from "./components/LoadingSpinner"; // Add a loading spinner component
+import LoadingSpinner from "./components/LoadingSpinner";
+import { useFooterReveal } from './hooks/useFooterReveal';
 
 const Home = lazy(() => import("./pages/Home"));
 const RemodelRates = lazy(() => import("./pages/RemodelRates"));
@@ -18,6 +18,7 @@ const ContactUs = lazy(() => import("./pages/contact-us"));
 function App() {
   const [popupOpen, setPopupOpen] = useState(false);
   const hasLogged = useRef(false);
+  const isFooterRevealed = useFooterReveal();
 
   useEffect(() => {
     if (!hasLogged.current) {
@@ -51,7 +52,6 @@ function App() {
     }
   }, []);
 
-  // Disable background scroll when popup is open
   useEffect(() => {
     if (popupOpen) {
       document.body.style.overflow = "hidden";
@@ -76,7 +76,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>
-      <Footer />
+      <Footer isRevealed={isFooterRevealed} />
       {!popupOpen && <ScrollIndicator />}
     </div>
   );
