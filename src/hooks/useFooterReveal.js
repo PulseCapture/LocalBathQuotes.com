@@ -12,7 +12,6 @@ export const useFooterReveal = (threshold = 200, delay = 500) => {
       const documentHeight = document.body.offsetHeight;
 
       if (scrollPosition >= documentHeight - threshold) {
-        // Start a timer to reveal the footer after the specified delay
         if (!timer) {
           timer = setTimeout(() => {
             setIsRevealed(true);
@@ -20,7 +19,6 @@ export const useFooterReveal = (threshold = 200, delay = 500) => {
           }, delay);
         }
       } else {
-        // If the user scrolls away before delay, clear the timer and hide the footer links
         if (timer) {
           clearTimeout(timer);
           timer = null;
@@ -30,7 +28,6 @@ export const useFooterReveal = (threshold = 200, delay = 500) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount in case the page loads already scrolled down
     handleScroll();
 
     return () => {
