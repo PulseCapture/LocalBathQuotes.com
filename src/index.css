@@ -20,16 +20,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ensure full viewport width and height */
 html, body, #root {
   width: 100vw;
-  min-height: 100vh; /* Allows the content to grow beyond the viewport */
+  min-height: 100vh;
   overflow-x: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 /* Smooth scrolling */
 html {
@@ -59,5 +57,3 @@ body::-webkit-scrollbar {
 body.scrolling .scroll-indicator {
   opacity: 1;
 }
-
-

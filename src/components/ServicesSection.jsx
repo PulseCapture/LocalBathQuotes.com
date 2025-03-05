@@ -31,7 +31,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto mt-12 px-4 relative">
+    <div className="max-w-6xl mx-auto mt-19 px-4 relative">
       <div className="relative">
         <h2 className="text-2xl font-semibold text-center mb-6">
           {highlightExclamationMarks(

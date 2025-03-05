@@ -10,6 +10,7 @@ module.exports = {
         'custom-blue': '#89B8F6',
         'custom-hover-blue': '#6faedb',
         'overlay-gray': '#4a5568',
+        'transparent-black': 'rgba(0, 0, 0, 0)' // Add transparent black color
       },
       width: {
         '25rem': '25rem',
