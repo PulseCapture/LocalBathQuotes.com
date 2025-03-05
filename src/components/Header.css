@@ -88,7 +88,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    height: var(--mobile-navbar-height, 63px); /* Default mobile height */
+    height: var(--mobile-navbar-height, 63.3px); /* Default mobile height */
   }
   .menu-toggle {
     display: block;

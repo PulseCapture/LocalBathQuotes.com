@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { useFooterReveal } from "../hooks/useFooterReveal";
 
-const Footer = ({ isRevealed }) => {
+const Footer = () => {
   const footerRef = useRef(null);
+  const isRevealed = useFooterReveal();
 
   useEffect(() => {
     if (isRevealed && footerRef.current) {
       footerRef.current.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 500); // Adjust delay as needed
     }
   }, [isRevealed]);
 
