@@ -38,7 +38,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="py-6 bg-white text-gray-700 border-t border-gray-200 text-center transition-all duration-300">
+    <footer className="py-6 bg-[#] text-gray-700 border-t border-gray-200 text-center transition-all duration-300">
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-4 px-4">
         {/* Minimal footer content – always visible */}
         <span className="text-lg font-bold text-black">
