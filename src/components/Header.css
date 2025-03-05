@@ -16,9 +16,15 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-content {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   height: 40px;
   width: auto;
+  margin-right: 0px;
 }
 
 .nav-links {
@@ -39,30 +45,17 @@
 
 .nav-buttons {
   display: flex;
-  gap: 12px;
-}
-
-.quote-button,
-.call-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-
-.quote-button {
-  background-color: #0066cc;
-  color: white;
-}
-
-.quote-button:hover {
-  background-color: #004c99;
+  gap: 2px;
 }
 
 .call-button {
   background-color: #28a745;
   color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
 .call-button:hover {
@@ -78,12 +71,43 @@
   cursor: pointer;
 }
 
+.mobile-icons {
+  display: flex;
+  gap: 62px;
+}
+
+.icon {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.desktop-only {
+  display: flex;
+}
+
 @media (max-width: 768px) {
+  .navbar {
+    height: var(--mobile-navbar-height, 63px); /* Default mobile height */
+  }
   .menu-toggle {
     display: block;
   }
   .nav-links {
     display: none;
+  }
+  .nav-buttons {
+    display: none;
+  }
+  .mobile-menu .quote-button,
+  .mobile-menu .call-button {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    height: var(--desktop-navbar-height, 64px); /* Default desktop height */
   }
 }
 
@@ -92,11 +116,11 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(40, 70, 140, 0.25);
+  background: rgba(40, 70, 140, 0.93);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   padding: 20px 0;
 }
 
