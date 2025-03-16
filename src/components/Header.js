@@ -1,6 +1,7 @@
+// src/components/Header.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes, FaPhone, FaHammer } from "react-icons/fa"; // Updated icon
+import { FaBars, FaTimes, FaPhone, FaHammer } from "react-icons/fa";
 import './Header.css';
 
 const Header = () => {
@@ -29,7 +30,9 @@ const Header = () => {
   return (
     <nav className={`navbar ${scroll > 10 ? 'scrolled' : ''}`} style={{ backgroundColor: `rgba(10, 90, 160, ${Math.min(0.3 + scroll * 0.005, 0.9)})` }}>
       <div className="navbar-content">
-        <img src="/Bath.png" alt="Logo" className="logo" />
+        <Link to="/">
+          <img src="/Bath.png" alt="Logo" className="logo" />
+        </Link>
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/how-it-works" className="nav-link">How It Works</Link>
@@ -38,18 +41,18 @@ const Header = () => {
           <Link to="/about" className="nav-link">About</Link>
           <Link to="/contact-us" className="nav-link">Contact Us</Link>
         </div>
+        {!isMobile && (
+          <div className="nav-buttons">
+            <button
+              onClick={() => window.Formester?.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4")}
+              className="quote-button"
+            >
+              Get Started Now
+            </button>
+            <a href="tel:18005551234" className="call-button">1-800-555-1234</a>
+          </div>
+        )}
       </div>
-      {!isMobile && (
-        <div className="nav-buttons">
-          <button
-            onClick={() => window.Formester?.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4")}
-            className="quote-button"
-          >
-            Get Started Now
-          </button>
-          <a href="tel:18005551234" className="call-button">1-800-555-1234</a>
-        </div>
-      )}
       <button className="menu-toggle" onClick={toggleMobileMenu} aria-label="Toggle Menu">
         {mobileMenuOpen ? <FaTimes /> : <FaBars />}
       </button>

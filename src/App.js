@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,7 +14,7 @@ const RemodelRates = lazy(() => import("./pages/RemodelRates"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const RemodelProcess = lazy(() => import("./pages/RemodelProcess"));
 const About = lazy(() => import("./pages/About"));
-const ContactUs = lazy(() => import("./pages/contact-us"));
+const ContactUs = lazy(() => import("./pages/contact-us")); // Ensure correct path
 
 function App() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -64,15 +65,15 @@ function App() {
     <div>
       <ScrollToTop />
       <Header />
-      <div className="bg-gray-300 w-full px-[5px] pt-24">
-        <Suspense fallback={<LoadingSpinner />}>
+      <div className="bg-gray-300 w-full px-[5px] pt-24 main-content">
+        <Suspense fallback={<div className="loading-spinner"><LoadingSpinner /></div>}>
           <Routes>
             <Route path="/" element={<Home setPopupOpen={setPopupOpen} />} />
             <Route path="/remodel-rates" element={<RemodelRates />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/remodel-process" element={<RemodelProcess />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/contact-us" element={<ContactUs />} /> {/* Unchanged ContactUs route */}
           </Routes>
         </Suspense>
       </div>

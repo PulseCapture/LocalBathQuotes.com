@@ -17,6 +17,26 @@
   backdrop-filter: none; /* Remove backdrop filter */
 }
 
+/* src/App.css */
+
+.main-content {
+  background: #f1f1f1;
+  padding: 80px 16px 20px;
+  min-height: 100vh;  /* Ensure the main content area has a minimum height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Full viewport height for loading spinner */
+}
+
+/* Add other existing styles here */
+
 .scrolled {
   padding: 8px 12px;
   box-shadow: none;

@@ -27,15 +27,17 @@ const HeroSection = () => {
         </div>
         <div className="flex flex-col">
           <h2 className="text-5xl md:text-6xl font-medium mb-8 text-white">
-            <span className="text-[#89B8F6]">Transform</span> your Bathroom with Local Expert Remodel Contractors
+            Get Personalized <span className="text-[#89B8F6]">Bathroom</span> Remodel Quotes – Fast, Free & Hassle-Free
             <span className="text-[#89B8F6]">.</span>
           </h2>
+
           <h3 className="text-2xl md:text-3xl text-white mb-8">
-            Work with Local Professionals to receive a Free Estimate for your dream bathroom. Get started today
+            LocalBathQuotes.com connects you with trusted bathroom remodeling pros in your area.
+            Answer a few quick questions to get accurate, no-cost quotes from top-rated contractors
             <span className="text-[#89B8F6]">!</span>
           </h3>
           {/* Ensure popup is on top */}
-          <div className="relative z-50">
+          <div className="relative z-50 mb-12 md:mb-0"> {/* Add margin at the bottom for mobile */}
             <FormesterPopup />
           </div>
         </div>
