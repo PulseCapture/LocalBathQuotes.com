@@ -1,43 +1,48 @@
-// src/components/HeroSection.jsx
 import React from "react";
 import FormesterPopup from "./FormesterPopup";
 
 const HeroSection = () => {
   return (
     <section
-      className="w-full min-h-[60vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0 -mt-3"
+      className="w-full min-h-[50vh] md:min-h-[72vh] flex flex-col items-center justify-center relative m-0 p-0"
       style={{
         backgroundImage: `url("${process.env.PUBLIC_URL}/bgimage.webp")`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        transform: "translateY(-20px)", // Moves the hero section up
       }}
     >
-      {/* Tint Overlay (this adds a subtle dark tint to the background) */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 "></div>
+      {/* Tint Overlay (Subtle Dark Tint) */}
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-      {/* Dark overlay (original gradient effect) */}
+      {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay-gray opacity-59"></div>
 
-      {/* Content container (stays on top and is NOT affected by the tint) */}
-      <div className="relative w-full max-w-7xl px-3 text-left z-10 flex items-center justify-center">
-        <div className="hidden sm:block mr-14">
-          <div className="w-1 bg-[#89B8F6] h-12"></div>
+      {/* Content */}
+      <div className="relative w-full max-w-7xl px-4 text-left z-10 flex items-center justify-center">
+        {/* Decorative Left-Side Element */}
+        <div className="hidden sm:flex flex-col items-center mr-8">
+          <div className="w-[3px] h-16 bg-[#6FA4E8] rounded-lg"></div> {/* Thinner & more subtle */}
+          {/* OR Replace with an icon */}
+          {/* <div className="text-[#6FA4E8] text-lg font-semibold mt-2">100% Free Quotes</div> */}
         </div>
-        <div className="flex flex-col">
-          <h2 className="text-5xl md:text-6xl font-medium mb-8 text-white">
-            Get Personalized <span className="text-[#89B8F6]">Bathroom</span> Remodel Quotes – Fast, Free & Hassle-Free
-            <span className="text-[#89B8F6]">.</span>
-          </h2>
 
-          <h3 className="text-2xl md:text-3xl text-white mb-8">
-            LocalBathQuotes.com connects you with trusted bathroom remodeling pros in your area.
-            Answer a few quick questions to get accurate, no-cost quotes from top-rated contractors
-            <span className="text-[#89B8F6]">!</span>
-          </h3>
-          {/* Ensure popup is on top */}
-          <div className="relative z-50 mb-12 md:mb-0"> {/* Add margin at the bottom for mobile */}
+        {/* Main Content */}
+        <div className="flex flex-col items-center md:items-start">
+          {/* Headline */}
+          <h1 className="text-3xl md:text-6xl font-bold leading-tight text-white text-center md:text-left">
+            Compare Bathroom Remodel Quotes & 
+            <span className="text-[#89B8F6]"> Save Up to 40%!</span>
+          </h1>
+
+          {/* Subheading */}
+          <p className="text-lg md:text-2xl text-white mt-4 md:mt-6 text-center md:text-left">
+            We connect you with top-rated bathroom remodeling pros.
+            Answer a few quick questions and get accurate, no-cost quotes—fast & easy!
+          </p>
+
+          {/* CTA */}
+          <div className="relative z-50 mt-6 md:mt-8">
             <FormesterPopup />
           </div>
         </div>

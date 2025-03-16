@@ -1,73 +1,86 @@
-// src/components/ServicesSection.jsx
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { highlightExclamationMarks } from "../utils/textUtils"; // Optional, if you want to use it
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
-  const navigate = useNavigate(); // Hook for programmatic navigation
+  const navigate = useNavigate();
 
   const services = [
     {
-      title: "Minor Bathroom Renovation",
+      title: "Minor Bathroom Upgrade",
       description:
-        "A minor renovation might include painting vanity and walls, replacing toilet, fixtures, hardware and accessories.",
-      price: "$3,000-10,000",
+        "A cost-effective refresh—perfect for updating fixtures, repainting walls, and replacing key elements without major demolition.",
+      price: "$3,000 - $10,000",
       image: "/serviceimage1.webp",
     },
     {
       title: "Full Bathroom Remodel",
       description:
-        "A complete bathroom remodel would typically include updating all aspects of a bathroom.",
-      price: "$10,000-20,000",
+        "A complete transformation including new flooring, cabinets, countertops, and an upgraded shower or tub.",
+      price: "$10,000 - $20,000",
       image: "/serviceimage2.webp",
     },
     {
-      title: "Custom/Lux Bathroom Remodel",
+      title: "Luxury Bathroom Renovation",
       description:
-        "A custom/ luxury remodel will most likely include a designer and will involve more sophisticated details.",
-      price: "$20,000-50,000",
+        "A high-end remodel featuring custom design, premium materials, and spa-like amenities for a stunning finish.",
+      price: "$20,000 - $50,000+",
       image: "/serviceimage3.webp",
     },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto mt-19 px-4 relative">
-      <div className="relative">
-        <h2 className="text-2xl font-semibold text-center mb-6">
-          {highlightExclamationMarks(
-            "Try a solution designed to streamline your connection with qualified contractors near you."
-          )}
+    <section className="w-full flex justify-center py-12 bg-gray-100">
+      <div className="w-full max-w-[90%] bg-white rounded-xl shadow-xl p-10 md:p-12">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mb-8">
+          Bathroom Remodel Designs & Direction
         </h2>
-        <h3 className="text-xl font-medium text-center mb-8">
-          {highlightExclamationMarks("What are average project costs?")}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <p className="text-lg text-center text-gray-700 mb-10">
+          Explore different remodel levels and choose the best fit for your needs and budget.
+        </p>
+
+        {/* Service Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="border rounded-lg p-6 shadow hover:shadow-lg transition-shadow bg-white"
+              className="border rounded-lg p-6 shadow-lg bg-white hover:shadow-xl transition-shadow"
             >
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-40 object-cover rounded mb-4"
+                className="w-full h-44 object-cover rounded-lg mb-6"
                 loading="lazy"
               />
-              <h4 className="text-xl font-bold mb-2">{service.title}</h4>
-              <p className="text-gray-700 mb-4">{service.description}</p>
-              <p className="text-lg font-semibold mb-4">{service.price}</p>
-              {/* Updated "Learn More" links to navigate like header button */}
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+              <p className="text-gray-700 text-lg leading-relaxed mb-4">{service.description}</p>
+              <p className="text-xl font-semibold text-[#89B8F6] mb-4">{service.price}</p>
               <button
                 onClick={() => navigate("/remodel-rates")}
-                className="text-blue-500 hover:underline"
+                className="bg-[#89B8F6] text-white font-semibold py-3 px-6 rounded-xl text-lg shadow-lg hover:bg-[#78a1db] transition duration-300"
               >
-                Learn more..
+                Learn More..
               </button>
             </div>
           ))}
         </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 text-center">
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            Not sure which remodel is right for you?
+          </h3>
+          <p className="text-lg text-gray-700 mb-6">
+            Take our quick quiz and get matched with the best remodel type based on your budget & needs.
+          </p>
+          <button
+            onClick={() => navigate("/how-it-works")}
+            className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-lg hover:bg-[#78a1db] transition duration-300"
+          >
+            Find Your Remodel Match
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -11,17 +11,17 @@ const FormSection = () => {
   }, []);
 
   return (
-    <section className="w-full flex justify-center py-8 bg-gray-300">
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-12">
+    <section className="w-full flex justify-center py-4 bg-white"> {/* Changed background to white */}
+      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-8"> {/* Reduced padding */}
         <div className="hidden md:block">
           <formester-standard-form
             set-auto-height="true"
-            height="100%"
+            height="auto" // Set height to auto
             id="Sf1nS1Rk7bpk"
             url="https://qpmpwkux.formester.com/f/Sf1nS1Rk7bpk"
           ></formester-standard-form>
         </div>
-        <div className="block md:hidden text-center">
+        <div className="block md:hidden text-center w-full h-full">
           <FormesterPopup /> {/* Use the FormesterPopup component on mobile */}
         </div>
       </div>
