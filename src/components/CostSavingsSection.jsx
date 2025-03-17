@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
 
 const MaterialBreakdownSection = () => {
   const navigate = useNavigate(); // Initialize navigate function
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 
-  // Function to open the Formester form as a pop-up
-  const openFormPopup = () => {
-    window.open(
-      "https://qpmpwkux.formester.com/f/Sf1nS1Rk7bpk", 
-      "_blank", 
-      "width=600,height=700,top=100,left=100,resizable=no,scrollbars=no"
-    );
+  useEffect(() => {
+    const scriptId = 'formester-popup-script';
+    const existingScript = document.getElementById(scriptId);
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://qpmpwkux.formester.com/widget/popup.js";
+      script.type = "module";
+      script.async = true;
+      script.onload = () => {
+        setIsScriptLoaded(true);
+        console.log("Formester script loaded successfully.");
+      };
+      script.onerror = () => console.error("Failed to load Formester script.");
+      document.body.appendChild(script);
+    } else {
+      setIsScriptLoaded(true);
+    }
+  }, []);
+
+  const openPopup = () => {
+    if (isScriptLoaded && window.Formester && typeof window.Formester.openPopup === "function") {
+      try {
+        window.Formester.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4");
+      } catch (error) {
+        console.error("Error opening Formester popup:", error);
+      }
+    } else {
+      console.error("Formester is not loaded yet or openPopup function is not available.");
+    }
   };
 
   // Material cost data
@@ -76,14 +101,15 @@ const MaterialBreakdownSection = () => {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col md:flex-row gap-4 text-center md:text-left">
               <button
-                onClick={() => navigate("/remodel-rates")} 
+                onClick={() => navigate("/remodel-rates")}
                 className="bg-gray-800 text-white font-semibold py-4 px-8 rounded-xl text-lg md:text-xl shadow-lg hover:bg-gray-700 transition duration-300"
               >
                 Read More..
               </button>
               <button
-                onClick={openFormPopup} // Trigger pop-up form
+                onClick={openPopup} // Trigger pop-up form
                 className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg md:text-xl shadow-lg hover:bg-[#78a1db] transition duration-300"
+                disabled={!isScriptLoaded}
               >
                 Get a Personalized Quote
               </button>
@@ -113,8 +139,9 @@ const MaterialBreakdownSection = () => {
 
           <div className="mt-10 text-center">
             <button
-              onClick={openFormPopup} // Trigger pop-up form
+              onClick={openPopup} // Trigger pop-up form
               className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg md:text-xl shadow-lg hover:bg-[#78a1db] transition duration-300"
+              disabled={!isScriptLoaded}
             >
               Get Connected to Compare
             </button>

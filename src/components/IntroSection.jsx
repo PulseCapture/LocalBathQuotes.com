@@ -1,6 +1,42 @@
-import React from "react";
+// src/components/IntroSection.jsx
+import React, { useEffect, useState } from "react";
 
 const IntroSection = () => {
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    const scriptId = 'formester-popup-script';
+    const existingScript = document.getElementById(scriptId);
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://qpmpwkux.formester.com/widget/popup.js";
+      script.type = "module";
+      script.async = true;
+      script.onload = () => {
+        setIsScriptLoaded(true);
+        console.log("Formester script loaded successfully.");
+      };
+      script.onerror = () => console.error("Failed to load Formester script.");
+      document.body.appendChild(script);
+    } else {
+      setIsScriptLoaded(true);
+    }
+  }, []);
+
+  const openPopup = () => {
+    if (isScriptLoaded && window.Formester && typeof window.Formester.openPopup === "function") {
+      try {
+        window.Formester.openPopup("bd091a21-3221-465d-b833-c3a91910c6b4");
+      } catch (error) {
+        console.error("Error opening Formester popup:", error);
+      }
+    } else {
+      console.error("Formester is not loaded yet or openPopup function is not available.");
+    }
+  };
+
   return (
     <section className="w-full flex justify-center py-12 bg-gray-100">
       <div className="w-full max-w-[90%] bg-white rounded-xl shadow-xl p-10 md:p-12">
@@ -35,7 +71,11 @@ const IntroSection = () => {
 
             {/* CTA Button */}
             <div className="mt-8 text-center md:text-left">
-              <button className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg md:text-xl shadow-lg hover:bg-[#78a1db] transition duration-300">
+              <button 
+                onClick={openPopup}
+                className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg md:text-xl shadow-lg hover:bg-[#78a1db] transition duration-300"
+                disabled={!isScriptLoaded}
+              >
                 Compare Free Quotes Now
               </button>
               <p className="text-sm text-gray-600 mt-3">*Takes about 2 minutes.</p>

@@ -28,6 +28,13 @@ const ServicesSection = () => {
     },
   ];
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="w-full flex justify-center py-12 bg-gray-100">
       <div className="w-full max-w-[90%] bg-white rounded-xl shadow-xl p-10 md:p-12">
@@ -70,13 +77,13 @@ const ServicesSection = () => {
             Not sure which remodel is right for you?
           </h3>
           <p className="text-lg text-gray-700 mb-6">
-            Take our quick quiz and get matched with the best remodel type based on your budget & needs.
+            Get matched with the best remodel type based on your budget & needs.
           </p>
           <button
-            onClick={() => navigate("/how-it-works")}
+            onClick={scrollToBottom}
             className="bg-[#89B8F6] text-white font-semibold py-4 px-8 rounded-xl text-lg shadow-lg hover:bg-[#78a1db] transition duration-300"
           >
-            Find Your Remodel Match
+            Find Your Remodel Mate
           </button>
         </div>
       </div>
