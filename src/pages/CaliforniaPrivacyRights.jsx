@@ -23,7 +23,7 @@ const CaliforniaPrivacyRights = () => {
         </ul>
 
         <p className="text-gray-700 leading-relaxed mb-4">
-          For more details, please review our <a href="https://LocalBathQuotes.com/privacy-policy" target="_blank" className="text-blue-500 hover:underline">Privacy Policy</a>.
+          For more details, please review our <a href="https://LocalBathQuotes.com/privacy-policy" target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">Privacy Policy</a>.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-800 mt-6">How to Submit a Request</h2>
@@ -47,4 +47,4 @@ const CaliforniaPrivacyRights = () => {
   );
 };
 
-export default CaliforniaPrivacyRights;
+export default CaliforniaPrivacyRights; 
