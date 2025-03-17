@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import ScrollIndicator from "./components/ScrollIndicator";
 import Header from "./components/Header";
-import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop
+import ScrollToTop from "./components/ScrollToTop";
 import './App.css';
 import LoadingSpinner from "./components/LoadingSpinner";
 import { useFooterReveal } from './hooks/useFooterReveal';
@@ -15,7 +15,12 @@ const RemodelRates = lazy(() => import("./pages/RemodelRates"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const RemodelProcess = lazy(() => import("./pages/RemodelProcess"));
 const About = lazy(() => import("./pages/About"));
-const ContactUs = lazy(() => import("./pages/contact-us")); // Ensure correct path
+const ContactUs = lazy(() => import("./pages/contact-us"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
+const CaliforniaPrivacyRights = lazy(() => import("./pages/CaliforniaPrivacyRights"));
+const DoNotSell = lazy(() => import("./pages/DoNotSell"));
+const Partners = lazy(() => import("./pages/Partners"));
 
 function App() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -65,7 +70,7 @@ function App() {
 
   return (
     <div>
-      <ScrollToTop /> {/* Ensure ScrollToTop is used here */}
+      <ScrollToTop />
       <Header navigate={scrollAndNavigate} />
       <div className="bg-gray-300 w-full px-[5px] pt-24 main-content">
         <Suspense fallback={<div className="loading-spinner"><LoadingSpinner /></div>}>
@@ -75,7 +80,12 @@ function App() {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/remodel-process" element={<RemodelProcess />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact-us" element={<ContactUs />} /> {/* Unchanged ContactUs route */}
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/california-privacy-rights" element={<CaliforniaPrivacyRights />} />
+            <Route path="/do-not-sell" element={<DoNotSell />} />
+	    <Route path="/partners" element ={<Partners/>}/>
           </Routes>
         </Suspense>
       </div>

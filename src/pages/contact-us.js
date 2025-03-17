@@ -1,79 +1,28 @@
-// src/components/ContactUs.jsx
-import React, { useEffect } from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+// src/pages/ContactUs.jsx
+import React from "react";
 
 const ContactUs = () => {
-  // Scroll to top when the component loads
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-<div className="min-h-screen flex justify-center items-start pt-0 p-6 bg-gray-120">
-  <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
-        {/* Page Heading */}
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">
-          Contact BathBehold
-        </h1>
-        <p className="text-center text-gray-600 mb-6">
-          Have questions about your bathroom remodel? Get in touch with us today!
+    <div className="min-h-screen flex justify-center items-start pt-0 p-6">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">Contact Us</h1>
+        <div className="border-t-2 border-[#89B8F6] my-4"></div>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          If you have any questions or need further information, please fill out the form below or contact us at <a href="mailto:support@localbathquotes.com" className="text-blue-500 hover:underline">support@localbathquotes.com</a>.
         </p>
+        <form method="POST" action="mailto:support@localbathquotes.com" enctype="text/plain">
+          <label htmlFor="name" className="block text-gray-800 font-bold mb-2">Name *</label>
+          <input type="text" id="name" name="Name" placeholder="Enter your name" required className="w-full p-2 mb-4 border border-gray-300 rounded-lg"/>
 
-        {/* Contact Details Section */}
-        <div className="grid md:grid-cols-4 gap-6 text-center mb-8">
-          <div className="flex flex-col items-center">
-            <FaPhoneAlt className="text-blue-500 text-3xl mb-2" />
-            <p className="font-semibold text-gray-700">Call Us</p>
-            <p className="text-gray-600">+1 (800) 123-4567</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaEnvelope className="text-blue-500 text-3xl mb-2" />
-            <p className="font-semibold text-gray-700">Email Us</p>
-            <p className="text-gray-600">support@bathbehold.com</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaMapMarkerAlt className="text-blue-500 text-3xl mb-2" />
-            <p className="font-semibold text-gray-700">Location</p>
-            <p className="text-gray-600">123 Bath Remodel St, City, State</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaClock className="text-blue-500 text-3xl mb-2" />
-            <p className="font-semibold text-gray-700">Business Hours</p>
-            <p className="text-gray-600">Mon - Fri: 9AM - 6PM</p>
-          </div>
-        </div>
+          <label htmlFor="email" className="block text-gray-800 font-bold mb-2">Email *</label>
+          <input type="email" id="email" name="Email" placeholder="Enter your email address" required className="w-full p-2 mb-4 border border-gray-300 rounded-lg"/>
 
-        {/* Contact Form */}
-        <form className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full p-3 border border-gray-300 rounded focus:ring focus:ring-blue-300"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full p-3 border border-gray-300 rounded focus:ring focus:ring-blue-300"
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Subject"
-            className="w-full p-3 border border-gray-300 rounded focus:ring focus:ring-blue-300"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows="5"
-            className="w-full p-3 border border-gray-300 rounded focus:ring focus:ring-blue-300"
-          ></textarea>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
+          <label htmlFor="message" className="block text-gray-800 font-bold mb-2">Message *</label>
+          <textarea id="message" name="Message" rows="4" placeholder="Enter your message" required className="w-full p-2 mb-4 border border-gray-300 rounded-lg"></textarea>
+
+          <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg w-full hover:bg-blue-400 transition duration-300">Submit</button>
         </form>
+        <p className="text-gray-700 leading-relaxed mt-4">Location: 113 Cherry Street, Seattle, Washington 98104</p>
       </div>
     </div>
   );
